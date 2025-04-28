@@ -30,7 +30,7 @@ public class EmailAuthorValidator implements Validator {
 
         Optional<Author> possibleAuthor = repository.findByEmail(form.email());
         if (possibleAuthor.isPresent()) {
-            errors.rejectValue("email", "", "error author already exists");
+            errors.rejectValue("email", "", "[Error] author's email "+ form.email() +" already exists");
         }
     }
 }
